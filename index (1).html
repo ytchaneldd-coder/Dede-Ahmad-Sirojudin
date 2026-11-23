@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nama Anda — Videographer & Video Editor</title>
+<meta name="description" content="Portofolio Videographer & Video Editor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet">
+
+<script>
+/* =====================================================================
+   ✏️  EDIT DI SINI — semua isi website diatur dari bagian ini saja.
+   Anda tidak perlu menyentuh bagian lain dari file ini.
+   ===================================================================== */
+
+const PROFILE = {
+  name: "Dede Ahmad Sirojudin",
+  role: "Videographer & Video Editor",
+  headline: "Creating Stories Through Visuals.",
+  intro: "Saya membantu brand, acara, dan individu menceritakan kisah mereka lewat video yang jujur, rapi, dan berkarakter.",
+
+  // Gambar latar di bagian headline. Kosongkan "" untuk latar hitam polos.
+  // Bisa diisi dengan:
+  //  - link video YouTube → thumbnail video itu otomatis dipakai (resolusi tertinggi)
+  //  - nama file gambar yang diunggah di folder yang sama (contoh: "hero.jpg")
+  //  - link gambar lengkap (https://...jpg)
+  heroImage: "hero.jpg",
+  heroDarkness: 0.3,   // 0 = gambar terang apa adanya, 1 = hampir hitam. Disarankan 0.5–0.7
+
+  about: "Halo, saya Dede Ahmad Sirojudin — videographer dan video editor berbasis di Kota Anda. Saya menangani proses dari pengambilan gambar hingga editing akhir, dengan fokus pada cerita yang kuat dan visual yang bersih.",
+
+  experience: [
+    { year: "2023 — Sekarang", text: "Freelance Videographer & Editor" },
+    { year: "2021 — Sekarang",     text: "Video Editor, Badan Wakaf Al-Qur'an" },
+    { year: "2020",            text: "Mulai mengerjakan dokumentasi acara & konten media sosial" }
+  ],
+
+  skills: ["Videography", "Video Editing", "Pilot Drone", "Storytelling", "Audio Editing", "Desain Visual", "Motion Graphics Dasar"],
+
+  software: ["Adobe Premiere Pro", "Adobe After Effects", "Adobe Photoshop", "Adobe Audition", "CapCut", "Adobe Ilustrator"],
+
+  email: "ddahmad379@gmail.com",
+  whatsapp: "6285294270451",          // format internasional, tanpa + dan tanpa spasi
+  instagram: "dede.ahmads"          // tanpa @
+};
+
+/*
+  DAFTAR KATEGORI
+  Urutan di sini = urutan tombol filter di website.
+  Kategori pada setiap karya di bawah HARUS ditulis persis sama dengan salah satu nama ini.
+*/
+const CATEGORIES = [
+  "Cinematic Video",
+  "Commercial",
+  "Documentary",
+  "Event Documentation",
+  "Teaser Content",
+  "Social Media & Other Projects"
+];
+
+/*
+  DAFTAR KARYA
+  Untuk menambah karya baru: salin satu blok { ... }, tempel di paling atas
+  daftar, lalu ganti isinya. Karya paling atas tampil paling depan.
+
+  video     : tempel link YouTube atau Vimeo apa adanya
+              (contoh: https://youtu.be/xxxx  atau  https://vimeo.com/123456)
+  thumbnail : opsional. Kosongkan "" untuk memakai thumbnail otomatis dari video.
+  category  : pilih salah satu nama dari DAFTAR KATEGORI di atas (tulis persis sama)
+*/
+const WORKS = [
+  {
+    title: "Menyenengkan Anak Langit",
+    category: "Cinematic Video",
+    year: 2026,
+    description: "Gambar rekam sendiri & sebagi pilot drone",
+    video: "https://www.youtube.com/watch?v=jDpur8rsOXY",
+    thumbnail: ""
+  },
+  {
+    title: "Iklan Program Sosial",
+    category: "Commercial",
+    year: 2026,
+    description: "Video iklan 30 detik terkait program sosial.",
+    video: "https://www.youtube.com/watch?v=IR2TUoSp3oo",
+    thumbnail: ""
+  },
+  {
+    title: "Cerita Para Pemimpin",
+    category: "Documentary",
+    year: 2025,
+    description: "Dokumenter pendek tentang pimpinan ponpes di kota kecil.",
+    video: "https://www.youtube.com/watch?v=bdLRxrog_Ps",
+    thumbnail: ""
+  },
+  {
+    title: "Mitra Ternak Park",
+    category: "Event Documentation",
+    year: 2025,
+    description: "Highlight pernikahan berdurasi 3 menit.",
+    video: "https://www.youtube.com/watch?v=3RNsxGy-W20",
+    thumbnail: ""
+  },
+  {
+    title: "Highligtht Content",
+    category: "Teaser Content",
+    year: 2025,
+    description: "Konten yang berhubungan dengan video panjang.",
+    video: "https://www.youtube.com/watch?v=gtOpg27ZSuc",
+    thumbnail: ""
+  },
+  {
+    title: "Video Reels",
+    category: "Social Media & Other Projects",
+    year: 2024,
+    description: "Banyak yang bisa dilakukan dengan kamera.",
+    video: "https://www.youtube.com/shorts/Gp53-9WFsE4",
+    thumbnail: ""
+  }
+];
+/* ======================= AKHIR BAGIAN EDIT ======================= */
+</script>
+
+<style>
+  :root{
+    --bg:#0c0c0c; --surface:#151515; --line:#262626;
+    --text:#f2f2f2; --muted:#9a9a9a; --dim:#6b6b6b;
+    --max:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,sans-serif;
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+  .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:20;background:rgba(12,12,12,.85);
+         backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .brand{display:flex;flex-direction:column;line-height:1.2}
+  .brand strong{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:16px}
+  .brand span{font-size:12px;color:var(--muted)}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav a{font-size:14px;color:var(--muted);transition:color .2s}
+  nav a:hover{color:var(--text)}
+
+  section{padding:110px 0;border-bottom:1px solid var(--line)}
+  section[id]{scroll-margin-top:68px}
+
+  /* Hero */
+  .hero{padding:140px 0 120px;position:relative;overflow:hidden}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;display:none;
+           opacity:0;transform:scale(1.04);transition:opacity 1s ease,transform 2.5s ease}
+  .hero-bg.ready{opacity:1;transform:scale(1)}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(90deg,rgba(12,12,12,calc(var(--dark) + .25)) 0%,rgba(12,12,12,var(--dark)) 45%,rgba(12,12,12,calc(var(--dark) - .25)) 100%),
+      linear-gradient(180deg,rgba(12,12,12,.35) 0%,rgba(12,12,12,0) 30%,rgba(12,12,12,0) 60%,rgba(12,12,12,1) 100%)}
+  .hero.has-img{min-height:88vh;display:flex;align-items:flex-end}
+  .hero.has-img .hero-bg{display:block}
+  .hero.has-img .wrap{width:100%}
+  .hero.has-img p{color:#cfcfcf}
+  .hero.has-img .btn-line{border-color:rgba(255,255,255,.4)}
+  .hero h1{font-size:clamp(40px,7vw,88px);margin:18px 0 24px;max-width:14ch}
+  .hero p{color:var(--muted);font-size:18px;max-width:52ch}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;
+       font-size:14px;font-weight:500;border:1px solid var(--text);transition:background .2s,color .2s}
+  .btn-solid{background:var(--text);color:var(--bg)}
+  .btn-solid:hover{background:transparent;color:var(--text)}
+  .btn-line{border-color:var(--line)}
+  .btn-line:hover{border-color:var(--text)}
+
+  /* Portfolio */
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+  .sec-head h2{font-size:clamp(30px,4vw,44px);margin-top:10px}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+  .filters button{background:none;border:1px solid var(--line);color:var(--muted);font:inherit;font-size:13px;
+                  padding:8px 16px;border-radius:999px;cursor:pointer;transition:all .2s}
+  .filters button:hover{color:var(--text);border-color:var(--dim)}
+  .filters button.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 24px}
+  .card{align-self:start;display:block;width:100%;cursor:pointer;background:none;border:0;color:inherit;text-align:left;font:inherit;padding:0}
+  .thumb{position:relative;aspect-ratio:16/9;background:var(--surface);overflow:hidden;border-radius:4px}
+  .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,opacity .3s}
+  .thumb .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+             color:var(--dim);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+             background:linear-gradient(135deg,#1a1a1a,#111)}
+  .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+        background:rgba(0,0,0,.25);opacity:0;transition:opacity .25s}
+  .play span{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.95);
+             display:flex;align-items:center;justify-content:center}
+  .play svg{margin-left:3px}
+  .card:hover .play,.card:focus-visible .play{opacity:1}
+  .card:hover img{transform:scale(1.03)}
+  .meta{display:flex;gap:10px;margin:16px 0 6px;font-size:12px;color:var(--muted);letter-spacing:.04em}
+  .meta i{font-style:normal;color:var(--dim)}
+  .card h3{font-size:19px;margin-bottom:6px}
+  .card p{font-size:14px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .empty{color:var(--muted);padding:40px 0}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:64px}
+  .about-grid h2{font-size:clamp(30px,4vw,44px);margin-top:10px}
+  .about-text{font-size:18px;color:#d0d0d0;margin-bottom:48px}
+  .block{margin-bottom:40px}
+  .block .label{margin-bottom:16px;display:block}
+  .exp li{list-style:none;display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-size:15px}
+  .exp li span{color:var(--muted)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tags li{list-style:none;border:1px solid var(--line);padding:7px 14px;border-radius:999px;font-size:13px;color:#cfcfcf}
+  .tags li.hl{border-color:var(--text);color:var(--text)}
+
+  /* Contact */
+  .contact{text-align:center;border-bottom:0}
+  .contact h2{font-size:clamp(36px,6vw,72px);margin:16px 0 20px}
+  .contact p{color:var(--muted);max-width:46ch;margin:0 auto}
+  .contact .actions{justify-content:center}
+  .links{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:40px;font-size:14px;color:var(--muted)}
+  .links a:hover{color:var(--text)}
+  footer{padding:32px 0;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  /* Modal */
+  .modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.92);display:none;
+         align-items:center;justify-content:center;padding:24px}
+  .modal.open{display:flex}
+  .modal-box{width:100%;max-width:1100px}
+  .player{position:relative;aspect-ratio:16/9;background:#000}
+  .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .player .nov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;text-align:center;padding:20px}
+  .modal-info{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-top:20px;flex-wrap:wrap}
+  .modal-info h3{font-size:22px;margin:6px 0}
+  .modal-info p{color:var(--muted);font-size:14px;max-width:60ch}
+  .modal-info a{font-size:14px;color:var(--muted);border-bottom:1px solid var(--line);white-space:nowrap}
+  .modal-info a:hover{color:var(--text)}
+  .close{position:absolute;top:18px;right:22px;background:none;border:0;color:var(--text);
+         font-size:32px;line-height:1;cursor:pointer;padding:6px}
+
+  @media (max-width:960px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .about-grid{grid-template-columns:1fr;gap:24px}
+  }
+  @media (max-width:640px){
+    .brand span{display:none}
+    nav ul{gap:16px}
+    nav a{font-size:13px}
+    section{padding:80px 0}
+    .hero{padding:96px 0 88px}
+    .hero-bg{background-position:72% center}
+    .hero p,.about-text{font-size:16px}
+    .grid{grid-template-columns:1fr;gap:36px}
+    .exp li{grid-template-columns:1fr;gap:2px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="brand"><strong data-f="name"></strong><span data-f="role"></span></a>
+    <nav><ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="wrap">
+      <div class="label"><span data-f="name"></span> — <span data-f="role"></span></div>
+      <h1 data-f="headline"></h1>
+      <p data-f="intro"></p>
+      <div class="actions">
+        <a href="#portfolio" class="btn btn-solid">Lihat Portofolio</a>
+        <a href="#contact" class="btn btn-line">Hubungi Saya</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="label">Portfolio</div><h2>Selected Works</h2></div>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div><div class="label">About</div><h2>Tentang Saya</h2></div>
+      <div>
+        <p class="about-text" data-f="about"></p>
+        <div class="block"><span class="label">Pengalaman</span><ul class="exp" id="exp"></ul></div>
+        <div class="block"><span class="label">Keahlian</span><ul class="tags" id="skills"></ul></div>
+        <div class="block"><span class="label">Software</span><ul class="tags" id="software"></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="label">Contact</div>
+      <h2>Let's work together.</h2>
+      <p>Punya proyek video? Ceritakan kebutuhan Anda, saya akan membalas secepatnya.</p>
+      <div class="actions">
+        <a class="btn btn-solid" id="btn-wa" target="_blank" rel="noopener">Chat via WhatsApp</a>
+        <a class="btn btn-line" id="btn-mail">Kirim Email</a>
+      </div>
+      <div class="links">
+        <a id="l-mail"></a>
+        <a id="l-wa" target="_blank" rel="noopener"></a>
+        <a id="l-ig" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span id="copy"></span><span data-f="role"></span></div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Pemutar video">
+  <button class="close" id="close" aria-label="Tutup">&times;</button>
+  <div class="modal-box">
+    <div class="player" id="player"></div>
+    <div class="modal-info">
+      <div><div class="meta" id="m-meta" style="margin:0"></div><h3 id="m-title"></h3><p id="m-desc"></p></div>
+      <a id="m-link" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const CATS = [...CATEGORIES];
+  WORKS.forEach(w => { if (w.category && !CATS.includes(w.category)) CATS.push(w.category); });
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  // Isi teks profil
+  document.querySelectorAll("[data-f]").forEach(el => el.textContent = PROFILE[el.dataset.f] || "");
+  document.title = PROFILE.name + " — " + PROFILE.role;
+
+  // Gambar latar headline
+  if (PROFILE.heroImage){
+    const bg = $("hero-bg");
+    const d = Math.min(1, Math.max(0, Number(PROFILE.heroDarkness ?? 0.6)));
+    bg.style.setProperty("--dark", d);
+    const yt = PROFILE.heroImage.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/))([\w-]{11})/);
+    const tries = yt
+      ? ["maxresdefault","sddefault","hqdefault"].map(q => `https://i.ytimg.com/vi/${yt[1]}/${q}.jpg`)
+      : [PROFILE.heroImage];
+    (function load(i){
+      if (i >= tries.length) return;
+      const img = new Image();
+      img.onload = () => {
+        if (yt && img.naturalWidth <= 120) return load(i + 1);   // YouTube: resolusi tak tersedia
+        bg.style.backgroundImage = 'url("' + tries[i].replace(/"/g,"%22") + '")';
+        bg.classList.add("ready");
+      };
+      img.onerror = () => load(i + 1);
+      img.src = tries[i];
+    })(0);
+    $("home").classList.add("has-img");
+  }
+  $("exp").innerHTML = PROFILE.experience.map(e => `<li><span>${esc(e.year)}</span>${esc(e.text)}</li>`).join("");
+  $("skills").innerHTML = PROFILE.skills.map(s => `<li>${esc(s)}</li>`).join("");
+  $("software").innerHTML = PROFILE.software.map((s,i) => `<li class="${i===0?"hl":""}">${esc(s)}</li>`).join("");
+
+  // Kontak
+  const wa = "https://wa.me/" + PROFILE.whatsapp.replace(/\D/g,"") + "?text=" + encodeURIComponent("Halo " + PROFILE.name + ", saya tertarik bekerja sama untuk proyek video.");
+  const mail = "mailto:" + PROFILE.email;
+  $("btn-wa").href = wa; $("btn-mail").href = mail;
+  $("l-mail").href = mail; $("l-mail").textContent = PROFILE.email;
+  $("l-wa").href = wa; $("l-wa").textContent = "WhatsApp";
+  $("l-ig").href = "https://instagram.com/" + PROFILE.instagram; $("l-ig").textContent = "@" + PROFILE.instagram;
+  $("copy").textContent = "© " + new Date().getFullYear() + " " + PROFILE.name;
+
+  // Baca link YouTube / Vimeo
+  function parse(url){
+    url = (url || "").trim();
+    let m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/))([\w-]{11})/);
+    if (m) return { type:"youtube", id:m[1],
+      thumb:`https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg`,
+      embed:`https://www.youtube-nocookie.com/embed/${m[1]}?autoplay=1&rel=0`,
+      label:"Buka di YouTube ↗" };
+    m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    if (m) return { type:"vimeo", id:m[1],
+      thumb:`https://vumbnail.com/${m[1]}.jpg`,
+      embed:`https://player.vimeo.com/video/${m[1]}?autoplay=1`,
+      label:"Buka di Vimeo ↗" };
+    return null;
+  }
+
+  const items = WORKS.map(w => ({ ...w, v: parse(w.video) }));
+  const playIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="#0c0c0c"><path d="M7 4.5v15l13-7.5z"/></svg>`;
+
+  // Filter
+  let current = "All";
+  $("filters").innerHTML = ["All", ...CATS].map(c =>
+    `<button data-c="${esc(c)}" class="${c==="All"?"active":""}">${c==="All"?"Semua":esc(c)}</button>`).join("");
+  $("filters").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    current = b.dataset.c;
+    [...$("filters").children].forEach(x => x.classList.toggle("active", x === b));
+    render();
+  });
+
+  function render(){
+    const list = items.map((w,i)=>({w,i})).filter(({w}) => current==="All" || w.category===current);
+    if (!list.length){ $("grid").innerHTML = `<p class="empty">Belum ada karya di kategori ini.</p>`; return; }
+    $("grid").innerHTML = list.map(({w,i}) => {
+      const src = w.thumbnail || (w.v && w.v.thumb);
+      return `<button class="card" data-i="${i}" aria-label="Putar ${esc(w.title)}">
+        <div class="thumb">
+          <div class="ph">${esc(w.category)}</div>
+          ${src ? `<img src="${esc(src)}" alt="${esc(w.title)}" loading="lazy" onerror="this.remove()">` : ""}
+          <div class="play"><span>${playIcon}</span></div>
+        </div>
+        <div class="meta">${esc(w.category)} <i>/</i> ${esc(w.year)}</div>
+        <h3>${esc(w.title)}</h3>
+        <p>${esc(w.description)}</p>
+      </button>`;
+    }).join("");
+  }
+  render();
+
+  // Modal pemutar (video baru dimuat saat diklik → halaman tetap ringan)
+  const modal = $("modal");
+  $("grid").addEventListener("click", e => {
+    const c = e.target.closest(".card"); if (!c) return;
+    const w = items[+c.dataset.i];
+    $("player").innerHTML = w.v
+      ? `<iframe src="${w.v.embed}" title="${esc(w.title)}" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe>`
+      : `<div class="nov">Link video belum diisi.<br>Tambahkan link YouTube/Vimeo pada daftar WORKS.</div>`;
+    $("m-meta").innerHTML = `${esc(w.category)} <i>/</i> ${esc(w.year)}`;
+    $("m-title").textContent = w.title;
+    $("m-desc").textContent = w.description;
+    const link = $("m-link");
+    if (w.v){ link.href = w.video; link.textContent = w.v.label; link.style.display = ""; }
+    else link.style.display = "none";
+    modal.classList.add("open"); document.body.style.overflow = "hidden";
+  });
+  function closeModal(){ modal.classList.remove("open"); $("player").innerHTML = ""; document.body.style.overflow = ""; }
+  $("close").addEventListener("click", closeModal);
+  modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
+})();
+</script>
+</body>
+</html>
